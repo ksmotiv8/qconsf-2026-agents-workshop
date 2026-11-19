@@ -1,0 +1,24 @@
+<section class="slide" id="harnessprompts" data-build-phases="3" style="--u:min(calc(100vw / 1920),calc(100vh / 1080));align-items:center;justify-content:center;padding:0;background:#060906">
+  <span class="slide-num"></span>
+  <div style="width:calc(1920 * var(--u));height:calc(1080 * var(--u));display:flex;flex-direction:column;flex:0 0 auto;padding:calc(84 * var(--u)) calc(120 * var(--u)) calc(80 * var(--u))">
+    <div style="font-size:calc(26 * var(--u));font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#c8f03c">Other harnesses</div>
+    <h2 style="font-size:calc(76 * var(--u));font-weight:700;color:#f4f4f0;margin:calc(14 * var(--u)) 0 0;letter-spacing:-0.02em">Every harness writes its own</h2>
+    <div style="display:flex;gap:calc(48 * var(--u));margin-top:calc(56 * var(--u))"><div data-phase="1" style="flex:1 1 0;display:flex;flex-direction:column;gap:calc(14 * var(--u))">
+      <div style="font-size:calc(34 * var(--u));font-weight:700;color:#c8f03c">Strands</div>
+      <div style="height:calc(340 * var(--u));background:#0c120b;border:calc(2 * var(--u)) solid rgba(200,240,60,0.45);border-radius:calc(14 * var(--u));padding:calc(26 * var(--u)) calc(28 * var(--u))">
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:calc(23 * var(--u));line-height:1.55;color:#f4f4f0;white-space:pre-wrap">You are an agent. Keep working until the task is fully resolved before ending your turn. Only stop to ask the user when you are blocked on a decision or information that is genuinely theirs to provide.</div></div>
+      <div style="font-size:calc(28 * var(--u));font-weight:600;color:#f4f4f0;line-height:1.3">No identity, by design.</div>
+      <div style="font-size:calc(20 * var(--u));color:#a9b0a2">strands-agents/harness-sdk · prompt.py</div></div><div data-phase="2" style="flex:1 1 0;display:flex;flex-direction:column;gap:calc(14 * var(--u))">
+      <div style="font-size:calc(34 * var(--u));font-weight:700;color:#c8f03c">OpenCode</div>
+      <div style="height:calc(340 * var(--u));background:#0c120b;border:calc(2 * var(--u)) solid rgba(200,240,60,0.45);border-radius:calc(14 * var(--u));padding:calc(26 * var(--u)) calc(28 * var(--u))">
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:calc(23 * var(--u));line-height:1.55;color:#f4f4f0;white-space:pre-wrap">You are an AI agent running in OpenCode, a coding agent harness. Help the user accomplish their goals using the tools you have available.</div></div>
+      <div style="font-size:calc(28 * var(--u));font-weight:600;color:#f4f4f0;line-height:1.3">Plus a section per model family.</div>
+      <div style="font-size:calc(20 * var(--u));color:#a9b0a2">sst/opencode · session/runner/prompt/system.txt</div></div><div data-phase="3" style="flex:1 1 0;display:flex;flex-direction:column;gap:calc(14 * var(--u))">
+      <div style="font-size:calc(34 * var(--u));font-weight:700;color:#c8f03c">Pi</div>
+      <div style="height:calc(340 * var(--u));background:#0c120b;border:calc(2 * var(--u)) solid rgba(200,240,60,0.45);border-radius:calc(14 * var(--u));padding:calc(26 * var(--u)) calc(28 * var(--u))">
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:calc(23 * var(--u));line-height:1.55;color:#f4f4f0;white-space:pre-wrap">You are a coding assistant running inside pi, a coding agent harness. Help users inspect files, run commands, and modify code.</div></div>
+      <div style="font-size:calc(28 * var(--u));font-weight:600;color:#f4f4f0;line-height:1.3">Then tools, rules, project files.</div>
+      <div style="font-size:calc(20 * var(--u));color:#a9b0a2">badlogic/pi-mono · core/system-prompt.ts</div></div></div>
+  </div>
+  <div class="presenter-notes">Same idea everywhere, different choices. The Strands harness opens with just "You are an agent," then a short contract: keep working until it is resolved, act once you have enough, verify before calling it done, confirm before anything irreversible. It deliberately asserts no identity or domain; you append your own. (The base Strands SDK has no default prompt at all.) OpenCode opens with one plain sentence about who it is and what it is for, then adds a section tuned to each model family: separate files for Anthropic, GPT, Kimi, and others. Pi is famously minimal: one sentence, then the tool list, a few rules, your project files, and the skills list. Whatever harness you use, the model is reading a short brief written by someone, plus whatever you add. These are quoted from each project's source on GitHub.</div>
+</section>

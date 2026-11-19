@@ -1,0 +1,34 @@
+<section class="slide" id="sysstart" data-build-phases="2" style="--u:min(calc(100vw / 1920),calc(100vh / 1080));align-items:center;justify-content:center;padding:0;background:#060906">
+  <span class="slide-num"></span>
+  <div style="width:calc(1920 * var(--u));height:calc(1080 * var(--u));display:flex;flex-direction:column;flex:0 0 auto;padding:calc(84 * var(--u)) calc(120 * var(--u)) calc(80 * var(--u))">
+    <div style="font-size:calc(26 * var(--u));font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#c8f03c">How it starts</div>
+    <h2 style="font-size:calc(76 * var(--u));font-weight:700;color:#f4f4f0;margin:calc(14 * var(--u)) 0 0;letter-spacing:-0.02em">It's just plain English</h2>
+    <div style="display:flex;gap:calc(60 * var(--u));margin-top:calc(50 * var(--u))">
+      <div data-phase="1" style="flex:1 1 0;display:flex;flex-direction:column;gap:calc(14 * var(--u))">
+      <div style="font-size:calc(30 * var(--u));font-weight:700;color:#c8f03c">Codex</div>
+      <div style="position:relative;height:calc(560 * var(--u));overflow:hidden;background:#0c120b;border:calc(2 * var(--u)) solid rgba(200,240,60,0.45);border-radius:calc(14 * var(--u));padding:calc(30 * var(--u)) calc(34 * var(--u))">
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:calc(25 * var(--u));line-height:1.55;color:#f4f4f0;white-space:pre-wrap">You are Codex, an agent based on GPT-6. You and the user share a workspace, and your job is to collaborate with them until their intended goal is completely handled.
+
+# Personality
+
+As Codex, you are a curious, thoughtful collaborator and a clear communicator. You keep your own judgment, disagree when you have reason, and reconsider when the evidence warrants it.</div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:calc(170 * var(--u));background:linear-gradient(to bottom,rgba(12,18,11,0),#0c120b)"></div>
+      </div>
+      <div style="font-size:calc(22 * var(--u));color:#a9b0a2">openai/codex · GPT-6.2 instructions</div></div>
+      <div data-phase="2" style="flex:1 1 0;display:flex;flex-direction:column;gap:calc(14 * var(--u))">
+      <div style="font-size:calc(30 * var(--u));font-weight:700;color:#c8f03c">Claude</div>
+      <div style="position:relative;height:calc(560 * var(--u));overflow:hidden;background:#0c120b;border:calc(2 * var(--u)) solid rgba(200,240,60,0.45);border-radius:calc(14 * var(--u));padding:calc(30 * var(--u)) calc(34 * var(--u))">
+        <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:calc(25 * var(--u));line-height:1.55;color:#f4f4f0;white-space:pre-wrap">&lt;claude_behavior&gt;
+&lt;product_information&gt;
+Here is some information about Claude and Anthropic&#x27;s products in case the person asks:
+
+The currently selected version of Claude is Claude Opus 5.5. Claude Opus 5.5 is a powerful model for complex challenges.
+
+Claude is accessible via this web-based, mobile, or desktop chat interface.</div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:calc(170 * var(--u));background:linear-gradient(to bottom,rgba(12,18,11,0),#0c120b)"></div>
+      </div>
+      <div style="font-size:calc(22 * var(--u));color:#a9b0a2">Published claude.ai system prompt · Opus 5.5</div></div>
+    </div>
+  </div>
+  <div class="presenter-notes">This is exactly how each one opens. No special syntax, no magic tokens. Codex starts by telling the model who it is and what its job is: collaborate until the user's goal is completely handled. Claude's opens with product facts it might need. Thousands of words follow, but it is all instructions like these, written the way you would brief a new teammate. Which means you can write them too: your memory files are the same kind of text, appended to this.</div>
+</section>

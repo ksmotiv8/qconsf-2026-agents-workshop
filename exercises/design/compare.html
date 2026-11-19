@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>From slop to signal: post-1 to post-5</title>
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--ink:#1d1d1f;--mute:#6b6b70;--line:#e3e1dc;
+--dash:#f4b740;--emoji:#b48cf2;--tag:#4aa3df;--inv:#e5484d;--chk:#f08c00}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:24px 28px 8px}h1{margin:0 0 4px;font-size:22px}header p{margin:0;color:var(--mute)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0 0;font-size:13px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+table{margin:16px 28px;border-collapse:collapse;background:var(--card);font-size:14px;border:1px solid var(--line)}
+th,td{padding:6px 12px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:nth-child(2){text-align:left}
+thead th{font-weight:600;color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:.03em}td.zero{color:#b5b3ad}
+.grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(330px,1fr);gap:16px;padding:8px 28px 32px;overflow-x:auto;align-items:start}
+.col{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.col h2{margin:0;font-size:17px}.step{color:var(--mute);font-size:13px;margin-bottom:10px}
+.prompt{background:#f1f0ec;border-left:3px solid #999;padding:8px 10px;font:12.5px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;border-radius:4px}
+.lbl{font:600 11px system-ui;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.stats{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0;font-size:12.5px}
+.stats span{padding:2px 8px;border-radius:999px;background:#eeede9}
+.post{white-space:pre-wrap;overflow-wrap:anywhere}
+mark{border-radius:3px;padding:0 2px;color:inherit}
+mark.dash,.sw.dash{background:var(--dash)}mark.emoji,.sw.emoji{background:var(--emoji)}mark.tag,.sw.tag{background:var(--tag);color:#fff}
+.inv{background:rgba(229,72,77,.14);border-bottom:2px solid var(--inv)}
+.chk{background:rgba(240,140,0,.13);border-bottom:2px dashed var(--chk)}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px}
+.s-inv b{color:var(--inv)}.s-chk b{color:var(--chk)}
+</style></head><body>
+<header><h1>From slop to signal: every post next to its prompt</h1>
+<p>Prompts are steps 1 to 5 of <a href="https://github.com/ksmotiv8/qconsf-2026-agents-workshop/blob/main/exercises/SLOP-TO-SIGNAL.md">SLOP-TO-SIGNAL.md</a>. Hover a highlight to see why it is marked.</p>
+<div class="legend">
+<span><i class="sw dash"></i>Dash (em, en, or spaced hyphen)</span>
+<span><i class="sw emoji"></i>Emoji</span>
+<span><i class="sw tag"></i>Hashtag</span>
+<span><span class="inv">&nbsp;made up&nbsp;</span> invented scene, feeling or detail that nothing in the prompt supports</span>
+<span><span class="chk">&nbsp;to check&nbsp;</span> specific fact not in the prompt: it may come from your answers or voice samples, so verify it</span>
+</div></header>
+<table><thead><tr><th>File</th><th>Step</th><th>Words</th><th>Dashes</th><th>Emoji</th><th>Hashtags</th><th>Made up</th><th>To check</th></tr></thead><tbody>
+<tr><th>post-1.md</th><td>Step 1. Just ask</td><td>144</td><td class="zero">0</td><td>4</td><td>5</td><td>7</td><td class="zero">0</td></tr><tr><th>post-2.md</th><td>Step 2. Add a skill (humanizer)</td><td>64</td><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td><td>3</td><td class="zero">0</td></tr><tr><th>post-3.md</th><td>Step 3. Add your voice (prompt from C)</td><td>272</td><td class="zero">0</td><td class="zero">0</td><td>4</td><td>3</td><td>2</td></tr><tr><th>post-4.md</th><td>Step 4. Refine the prompt</td><td>261</td><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td><td>4</td><td>2</td></tr><tr><th>post-5.md</th><td>Step 5. Chain it</td><td>94</td><td class="zero">0</td><td class="zero">0</td><td>1</td><td class="zero">0</td><td>3</td></tr></tbody></table>
+<main class="grid"><section class="col">
+<h2>post-1.md</h2><div class="step">Step 1. Just ask</div>
+<div class="prompt"><div class="lbl">Prompt</div>Write a LinkedIn post telling people I went to QCon SF.
+http://qconsf.com. Save it as post-1.md.</div>
+<div class="stats"><span><b>144</b> words</span><span class="s-dash"><b>0</b> dashes</span><span class="s-emoji"><b>4</b> emoji</span><span class="s-tag"><b>5</b> hashtags</span><span class="s-inv"><b>7</b> made up</span><span class="s-chk"><b>0</b> to check</span></div>
+<div class="post">I just got back from QCon SF! <mark class="emoji" title="emoji">🎉</mark>
+
+<span class="inv" title="Made up: not in the prompt">Spent several days</span> surrounded by engineers and architects sharing real-world lessons on building and running software at scale. Between the talks, the hallway conversations, and <span class="inv" title="Made up: not in the prompt">the chance to catch up with old friends and meet new ones</span>, <span class="inv" title="Made up: not in the prompt">I came home with a notebook full of ideas and a long list of things to try</span>.
+
+A few things that stood out:
+
+<mark class="emoji" title="emoji">🔹</mark> <span class="inv" title="Made up: not in the prompt">Practitioners sharing what actually worked (and what didn't) in production</span>
+<mark class="emoji" title="emoji">🔹</mark> <span class="inv" title="Made up: not in the prompt">Fresh perspectives on architecture, AI, and engineering culture</span>
+<mark class="emoji" title="emoji">🔹</mark> <span class="inv" title="Made up: not in the prompt">Great conversations with people solving similar problems in very different ways</span>
+
+Huge thanks to the organizers, speakers, and <span class="inv" title="Made up: not in the prompt">everyone I chatted with</span>. Already looking forward to putting these learnings into practice.
+
+If you're curious about the conference, check it out: http://qconsf.com
+
+Were you at QCon SF too? I'd love to hear your biggest takeaway!
+
+<mark class="tag" title="hashtag">#QConSF</mark> <mark class="tag" title="hashtag">#QCon</mark> <mark class="tag" title="hashtag">#SoftwareEngineering</mark> <mark class="tag" title="hashtag">#SoftwareArchitecture</mark> <mark class="tag" title="hashtag">#Tech</mark>
+</div></section><section class="col">
+<h2>post-2.md</h2><div class="step">Step 2. Add a skill (humanizer)</div>
+<div class="prompt"><div class="lbl">Prompt</div>Write a LinkedIn post telling people I went to QCon SF.
+http://qconsf.com. Use the humanizer skill to sound less like an LLM.
+Save it as post-2.md.</div>
+<div class="stats"><span><b>64</b> words</span><span class="s-dash"><b>0</b> dashes</span><span class="s-emoji"><b>0</b> emoji</span><span class="s-tag"><b>0</b> hashtags</span><span class="s-inv"><b>3</b> made up</span><span class="s-chk"><b>0</b> to check</span></div>
+<div class="post">I was at QCon SF <span class="inv" title="Made up: not in the prompt">this week</span>.
+
+It was good to <span class="inv" title="Made up: not in the prompt">spend a few days with other engineers</span> talking about how they build and run software. <span class="inv" title="Made up: not in the prompt">I came back with a longer reading list and a few ideas I want to try with my team</span>.
+
+If you were there, say hi in the comments. I'd like to hear which talks stuck with you.
+
+https://qconsf.com
+</div></section><section class="col">
+<h2>post-3.md</h2><div class="step">Step 3. Add your voice (prompt from C)</div>
+<div class="prompt"><div class="lbl">Prompt</div>Write a LinkedIn post telling people I went to QCon SF.
+http://qconsf.com. Use my-voice. Save it as post-3.md.</div>
+<div class="stats"><span><b>272</b> words</span><span class="s-dash"><b>0</b> dashes</span><span class="s-emoji"><b>0</b> emoji</span><span class="s-tag"><b>4</b> hashtags</span><span class="s-inv"><b>3</b> made up</span><span class="s-chk"><b>2</b> to check</span></div>
+<div class="post">I went to QCon SF (https://qconsf.com) <span class="chk" title="Not in the prompt: check it against your answers">to teach people how to make an AI sound less like an AI</span>.
+
+<span class="chk" title="Not in the prompt: check it against your answers">Ruth Linehan and I co-ran a hands-on workshop on Claude Code and Codex</span>. Thank you, Ruth. Co-teaching with you made the whole thing better.
+
+The exercise had two steps.
+
+Step one: everyone used an agent to write a LinkedIn post. No special setup, no tricks. Just ask and take what comes back.
+
+Step two: everyone built a skill that writes in their own voice, then used it to write the post again.
+
+<span class="inv" title="Made up: not in the prompt">What happened in between was my favorite part of the week.</span>
+
+People read that first draft. <span class="inv" title="Made up: not in the prompt">Then they winced. You could see it happen across the room.</span> Every one of us knows that tone: the breathless opener, the tidy list of three, the confident paragraph that says nothing. Generic text is a rental car. It gets you there, and nobody would mistake it for yours.
+
+Then came the good bit. <span class="inv" title="Made up: not in the prompt">Nobody asked me how to fix it.</span> They fixed it themselves. They knew exactly what was wrong because they know how they sound, and the skill was how they taught that to the agent.
+
+That's the lesson I'd take from the room. The agent can type faster than you. Only you can tell it what "you" sounds like.
+
+Want to try it? The whole exercise is in our repo, and you can run it on your own time, with your own taste as the test:
+
+https://github.com/ksmotiv8/qconsf-2026-agents-workshop
+
+If you try it, I'd love to hear how your first draft compared to your second. Bonus points for the wince.
+
+<mark class="tag" title="hashtag">#QConSF</mark> <mark class="tag" title="hashtag">#ClaudeCode</mark> <mark class="tag" title="hashtag">#Codex</mark> <mark class="tag" title="hashtag">#AIAgents</mark>
+</div></section><section class="col">
+<h2>post-4.md</h2><div class="step">Step 4. Refine the prompt</div>
+<div class="prompt"><div class="lbl">Prompt</div>Write a LinkedIn post telling people I went to QCon SF.
+http://qconsf.com. Use my-voice. Make the post engaging and uplifting.
+Before you write, interactively ask me questions that would help you
+collect the data to tell a personal account of my experience. Save it as
+post-4.md.</div>
+<div class="stats"><span><b>261</b> words</span><span class="s-dash"><b>0</b> dashes</span><span class="s-emoji"><b>0</b> emoji</span><span class="s-tag"><b>0</b> hashtags</span><span class="s-inv"><b>4</b> made up</span><span class="s-chk"><b>2</b> to check</span></div>
+<div class="post">I went to QCon SF (https://qconsf.com) and <span class="chk" title="Not in the prompt: check it against your answers">made a room full of engineers ask an AI to write a LinkedIn post</span>. <span class="inv" title="Made up: not in the prompt">Then I made them read it out loud. In their heads, thankfully.</span>
+
+<span class="chk" title="Not in the prompt: check it against your answers">Ruth Linehan and I co-ran a hands-on workshop on Claude Code and Codex</span>, and the exercise had two parts.
+
+**Part one: write the post with an agent.** <span class="inv" title="Made up: not in the prompt">Everyone got a first draft in seconds.</span> Fast, fluent, and about as personal as a hotel lobby.
+
+**Part two: build a skill that writes in your own voice.** Same agent, same topic, but now it has been taught how *you* actually write.
+
+<span class="inv" title="Made up: not in the prompt">The best moment of the whole conference</span> came between the two. People read that first draft, and you could see it happen. The wince. <span class="inv" title="Made up: not in the prompt">The slow head shake. Someone whispering "I would never say that."</span> Nobody had to tell them it was slop. They spotted it themselves, and then they fixed it themselves.
+
+That's the part I care about. An agent that can write is table stakes. An agent that writes like you, because you took the time to tell it how, is the one you'll trust with your name on the post. The fix wasn't a smarter model. It was a person who knew what good sounded like.
+
+Big thanks to Ruth for co-running this with me, and to everyone who showed up, typed, winced, and rewrote.
+
+Want to try it? The whole exercise is in our repo: https://github.com/ksmotiv8/qconsf-2026-agents-workshop
+
+Run it, then tell me how your first draft read. I'd love to hear how much slop you caught.
+</div></section><section class="col">
+<h2>post-5.md</h2><div class="step">Step 5. Chain it</div>
+<div class="prompt"><div class="lbl">Prompt</div>Write a LinkedIn post telling people I went to QCon SF.
+http://qconsf.com. Make the post engaging and uplifting. Before you
+write, interactively ask me questions that would help you collect the
+data to tell a personal account of my experience. Write it with my-voice,
+then run humanizer on it. Save it as post-5.md.</div>
+<div class="stats"><span><b>94</b> words</span><span class="s-dash"><b>0</b> dashes</span><span class="s-emoji"><b>0</b> emoji</span><span class="s-tag"><b>1</b> hashtags</span><span class="s-inv"><b>0</b> made up</span><span class="s-chk"><b>3</b> to check</span></div>
+<div class="post">The model gives you capability. The harness makes it dependable.
+
+That idea ran through <mark class="tag" title="hashtag">#QConSF</mark> for me.
+
+<span class="chk" title="Not in the prompt: check it against your answers">Manju Rajashekhar's keynote made it plain. Context, tools and feedback loops are the harness.</span>
+
+<span class="chk" title="Not in the prompt: check it against your answers">Joey Lynch and Ayushi Singh from Netflix had a rule for optimization. Judge it by p99 latency and cache behavior, not the headline compression ratio.</span>
+
+<span class="chk" title="Not in the prompt: check it against your answers">Ruth Linehan and I ran a workshop.</span> People wrote a post with an agent, winced at the slop, then built a skill that writes in their own voice. Same model. Better harness. Better post.
+
+Try the exercise: https://github.com/ksmotiv8/qconsf-2026-agents-workshop
+</div></section></main></body></html>

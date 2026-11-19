@@ -1,0 +1,221 @@
+
+
+
+
+</div><!-- end #slide-track -->
+
+
+
+
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- Navigation + JS -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div id="nav">
+  <button id="prevBtn" aria-label="Previous slide">Prev</button>
+  <span id="counter">1 / 32</span>
+  <button id="nextBtn" aria-label="Next slide">Next</button>
+</div>
+<div id="notes-indicator">P: notes off</div>
+
+<script>
+(function() {
+  const allSlides = Array.from(document.querySelectorAll('.slide'));
+  let slides = allSlides.filter(s => !s.classList.contains('appendix-slide'));
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  const notesInd = document.getElementById('notes-indicator');
+  const track = document.getElementById('slide-track');
+  let current = 0;
+  let buildPhase = {};
+  let wheelLock = false;
+
+  function rebuildSlideList() {
+    const curSlide = slides[current];
+    const showAppendix = document.body.classList.contains('show-appendix');
+    slides = showAppendix
+      ? allSlides
+      : allSlides.filter(s => !s.classList.contains('appendix-slide'));
+    const newIdx = slides.indexOf(curSlide);
+    current = newIdx >= 0 ? newIdx : Math.min(current, slides.length - 1);
+    initBuilds();
+    goTo(current);
+  }
+
+  function initBuilds() {
+    buildPhase = {};
+    slides.forEach((s, i) => {
+      const max = parseInt(s.dataset.buildPhases || '0', 10);
+      buildPhase[i] = { max, current: 0 };
+    });
+  }
+
+  function showPhases(idx, upTo) {
+    const els = slides[idx].querySelectorAll('[data-phase]');
+    els.forEach(el => {
+      const p = parseInt(el.dataset.phase, 10);
+      el.classList.toggle('visible', p <= upTo);
+    });
+    if (slides[idx].id === 's18') fillSpillRows(upTo >= 1);
+  }
+
+  function fillSpillRows(show) {
+    var s = document.getElementById('s18');
+    if (!s) return;
+    var rows = s.querySelectorAll('tbody tr');
+    // row index 1 = 8 GB
+    var data = {1: ['14c','1.3s','14.2s']};
+    [1].forEach(function(ri) {
+      var cells = rows[ri].querySelectorAll('td');
+      if (show) {
+        cells[0].style.color = '#fff';
+        cells[1].innerHTML = data[ri][0]; cells[1].style.color = '#fff';
+        cells[2].innerHTML = data[ri][1]; cells[2].style.color = '#fff';
+        cells[3].innerHTML = data[ri][2]; cells[3].style.color = '#fff';
+      } else {
+        cells[0].style.color = 'var(--text-dim)';
+        cells[1].innerHTML = '&mdash;'; cells[1].style.color = 'var(--text-dim)';
+        cells[2].innerHTML = '&mdash;'; cells[2].style.color = 'var(--text-dim)';
+        cells[3].innerHTML = '&mdash;'; cells[3].style.color = 'var(--text-dim)';
+      }
+    });
+  }
+
+  function resetPhases(idx) {
+    buildPhase[idx].current = 0;
+    showPhases(idx, 0);
+  }
+
+  function completePhases(idx) {
+    const bp = buildPhase[idx];
+    bp.current = bp.max;
+    showPhases(idx, bp.max);
+  }
+
+  function goTo(idx) {
+    if (idx < 0 || idx >= slides.length) return;
+    if (idx !== current) resetPhases(current);
+    slides[current].classList.remove('current');
+    current = idx;
+    slides[current].classList.add('current');
+    track.style.transform = 'translateX(-' + (current * 100) + 'vw)';
+    history.replaceState(null, '', '#' + slides[current].id);
+    update();
+  }
+
+  function update() {
+    var mainCount = slides.filter(function(s) { return !s.classList.contains('appendix-slide'); }).length;
+    var isAppendix = slides[current].classList.contains('appendix-slide');
+    var pos = 0;
+    for (var i = 0; i <= current; i++) {
+      if (!slides[i].classList.contains('appendix-slide')) pos++;
+    }
+    var label = isAppendix ? 'A' + (current - mainCount + 1) + ' / ' + mainCount : pos + ' / ' + mainCount;
+    var pct = ((current + 1) / slides.length) * 100;
+    progress.style.width = pct + '%';
+    counter.textContent = label;
+    var num = slides[current].querySelector('.slide-num');
+    if (num) num.textContent = label;
+  }
+
+  function next() {
+    const bp = buildPhase[current];
+    if (bp.max > 0 && bp.current < bp.max) {
+      bp.current++;
+      showPhases(current, bp.current);
+      return;
+    }
+    if (current < slides.length - 1) {
+      goTo(current + 1);
+      if (buildPhase[current].max > 0) showPhases(current, 0);
+    }
+  }
+
+  function prev() {
+    const bp = buildPhase[current];
+    if (bp.max > 0 && bp.current > 0) {
+      bp.current--;
+      showPhases(current, bp.current);
+      return;
+    }
+    if (current > 0) {
+      goTo(current - 1);
+      completePhases(current);
+    }
+  }
+
+  var numBuf = '', numTimer = null;
+  document.addEventListener('keydown', function(e) {
+    if (e.key >= '0' && e.key <= '9') {
+      e.preventDefault();
+      numBuf += e.key;
+      clearTimeout(numTimer);
+      numTimer = setTimeout(function() {
+        var n = parseInt(numBuf, 10);
+        numBuf = '';
+        if (n >= 1 && n <= slides.length) goTo(n - 1);
+      }, 800);
+      return;
+    }
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'ArrowDown') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(slides.length - 1); completePhases(current); }
+    else if (e.key === 'p' || e.key === 'P') {
+      document.body.classList.toggle('notes-on');
+      notesInd.textContent = document.body.classList.contains('notes-on') ? 'P: notes on' : 'P: notes off';
+    }
+    else if (e.key === 'd' || e.key === 'D') {
+      document.body.classList.toggle('light-mode');
+    }
+    else if (e.key === 'a' || e.key === 'A') {
+      document.body.classList.toggle('show-appendix');
+      rebuildSlideList();
+      notesInd.textContent = document.body.classList.contains('show-appendix') ? 'A: appendix on' : 'A: appendix off';
+      setTimeout(function() {
+        notesInd.textContent = document.body.classList.contains('notes-on') ? 'P: notes on' : 'P: notes off';
+      }, 1500);
+    }
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', prev);
+  document.getElementById('nextBtn').addEventListener('click', next);
+
+  window.addEventListener('wheel', function(e) {
+    if (wheelLock) return;
+    if (Math.abs(e.deltaY) < 4 && Math.abs(e.deltaX) < 4) return;
+    wheelLock = true;
+    if (e.deltaY > 0 || e.deltaX > 0) next();
+    else prev();
+    setTimeout(function() { wheelLock = false; }, 500);
+  }, { passive: true });
+
+  var touchStartX = 0, touchStartY = 0;
+  document.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+  document.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].screenX - touchStartX;
+    var dy = e.changedTouches[0].screenY - touchStartY;
+    if (Math.abs(dx) < 50 || Math.abs(dy) > Math.abs(dx)) return;
+    if (dx < 0) next(); else prev();
+  }, { passive: true });
+
+  initBuilds();
+  var startIdx = 0;
+  if (location.hash) {
+    var target = document.getElementById(location.hash.slice(1));
+    var hi = slides.indexOf(target);
+    if (hi >= 0) startIdx = hi;
+  }
+  track.style.transition = 'none';
+  goTo(startIdx);
+  requestAnimationFrame(function() { track.style.transition = ''; });
+})();
+</script>
+
+</body>
+</html>

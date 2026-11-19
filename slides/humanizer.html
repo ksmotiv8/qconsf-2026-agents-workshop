@@ -1,0 +1,31 @@
+<section class="slide" id="humanizer" data-build-phases="3" style="--u:min(calc(100vw / 1920),calc(100vh / 1080));align-items:center;justify-content:center;padding:0;background:#060906">
+  <span class="slide-num"></span>
+  <div style="width:calc(1920 * var(--u));height:calc(1080 * var(--u));display:flex;flex-direction:column;flex:0 0 auto;padding:calc(84 * var(--u)) calc(120 * var(--u)) calc(80 * var(--u))">
+    <div style="font-size:calc(26 * var(--u));font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#c8f03c">A real skill · github.com/blader/humanizer · 70k+ stars</div>
+    <h2 style="font-size:calc(76 * var(--u));font-weight:700;color:#f4f4f0;margin:calc(14 * var(--u)) 0 0;letter-spacing:-0.02em">humanizer</h2>
+    <div style="display:flex;gap:calc(60 * var(--u));margin-top:calc(44 * var(--u))"><div style="flex:0 0 calc(1100 * var(--u));background:#0c120b;border:calc(2 * var(--u)) solid rgba(200,240,60,0.45);border-radius:calc(14 * var(--u));padding:calc(26 * var(--u)) calc(30 * var(--u));font-family:'JetBrains Mono',ui-monospace,monospace;font-size:calc(19 * var(--u));line-height:1.5;position:relative;overflow:hidden;height:calc(560 * var(--u))"><div style="font-size:calc(18 * var(--u));color:#a9b0a2;margin-bottom:calc(10 * var(--u))">SKILL.md</div><div style="color:#c8f03c;white-space:pre">---
+name: humanizer
+description: |
+  Rewrite AI-sounding text so it reads like the writer without changing what it says.
+  Use when editing or reviewing prose for AI tells: not-X-but-Y contrasts, one-line
+  closers, staged openers, forced triads, dashes everywhere, inflated claims, sales
+  language, stock AI words, bold labels, or filler.
+license: MIT
+metadata:
+  version: &quot;4.0.0&quot;
+---</div><div style="color:#f4f4f0;white-space:pre">
+# Humanizer: remove AI writing patterns
+
+Rewrite AI-sounding text so it reads like the writer, not a chatbot. Keep what it says.</div><div style="color:#a9b0a2">…</div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:calc(110 * var(--u));background:linear-gradient(to bottom,rgba(12,18,11,0),#0c120b)"></div></div><div style="flex:1 1 auto;display:flex;flex-direction:column;gap:calc(40 * var(--u))">
+    <div data-phase="1" style="display:flex;flex-direction:column;gap:calc(6 * var(--u))">
+      <div style="font-size:calc(38 * var(--u));font-weight:700;color:#f4f4f0;line-height:1.15"><span style="color:#c8f03c">Listed up front</span></div>
+      <div style="font-size:calc(26 * var(--u));color:#a9b0a2">Just the name and description.</div></div>
+    <div data-phase="2" style="display:flex;flex-direction:column;gap:calc(6 * var(--u))">
+      <div style="font-size:calc(38 * var(--u));font-weight:700;color:#f4f4f0;line-height:1.15">Loaded when used</div>
+      <div style="font-size:calc(26 * var(--u));color:#a9b0a2">About 500 lines: 26 AI tells.</div></div>
+    <div data-phase="3" style="display:flex;flex-wrap:wrap;gap:calc(10 * var(--u))"><span style="font-size:calc(22 * var(--u));font-weight:600;color:#f4f4f0;border:calc(2 * var(--u)) solid rgba(200,240,60,0.5);border-radius:calc(999 * var(--u));padding:calc(6 * var(--u)) calc(16 * var(--u))">Staging</span><span style="font-size:calc(22 * var(--u));font-weight:600;color:#f4f4f0;border:calc(2 * var(--u)) solid rgba(200,240,60,0.5);border-radius:calc(999 * var(--u));padding:calc(6 * var(--u)) calc(16 * var(--u))">Rhythm by rule</span><span style="font-size:calc(22 * var(--u));font-weight:600;color:#f4f4f0;border:calc(2 * var(--u)) solid rgba(200,240,60,0.5);border-radius:calc(999 * var(--u));padding:calc(6 * var(--u)) calc(16 * var(--u))">Inflation</span><span style="font-size:calc(22 * var(--u));font-weight:600;color:#f4f4f0;border:calc(2 * var(--u)) solid rgba(200,240,60,0.5);border-radius:calc(999 * var(--u));padding:calc(6 * var(--u)) calc(16 * var(--u))">Formatting by rule</span><span style="font-size:calc(22 * var(--u));font-weight:600;color:#f4f4f0;border:calc(2 * var(--u)) solid rgba(200,240,60,0.5);border-radius:calc(999 * var(--u));padding:calc(6 * var(--u)) calc(16 * var(--u))">Leftovers</span><span style="font-size:calc(22 * var(--u));font-weight:600;color:#f4f4f0;border:calc(2 * var(--u)) solid rgba(200,240,60,0.5);border-radius:calc(999 * var(--u));padding:calc(6 * var(--u)) calc(16 * var(--u))">Wrong reader</span></div>
+  </div></div>
+  </div>
+  <div class="presenter-notes">This is one of the most popular skills on GitHub, over 70,000 stars. It is a single markdown file. The top block in green is all the model sees at the start: a name and a description that says when to use it, with a list of the tells it catches. That is the trigger. When you ask it to edit prose, the model loads the whole file: about 500 lines that walk through 26 AI writing patterns in six groups, from "not X but Y" contrasts and one-line closers to forced triads, dashes, inflated claims, and chatbot leftovers. Notice there is no code. A skill is instructions in plain English, the same as a system prompt. We will use this one in the writing exercise.</div>
+</section>
